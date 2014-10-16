@@ -373,3 +373,24 @@ Completed 200 OK in 7ms (Views: 2.8ms | ActiveRecord: 0.5ms)
   [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
   [1m[35m (0.1ms)[0m  BEGIN
   [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+ [36mCYPHER[0m [33m145ms[0m MATCH (result:`User`) WHERE result.email = {result_email} RETURN COUNT(result) AS count | {:result_email=>"bobby123@test.com"}
+ [36mCYPHER[0m [33m2ms[0m MATCH (result:`User`) WHERE result.email = {result_email} RETURN COUNT(result) AS count | {:result_email=>"bobby123@test.com"}
+ [36mCYPHER[0m [33m2ms[0m MATCH (result:`User`) WHERE result.email = {result_email} RETURN COUNT(result) AS count | {:result_email=>"bobby123@test.com"}
+ [36mCYPHER[0m [33m2ms[0m MATCH (result:`User`) WHERE result.email = {result_email} RETURN COUNT(result) AS count | {:result_email=>"bobby123@test.com"}
+ [36mCYPHER[0m [33m2ms[0m MATCH (result:`User`) WHERE result.email = {result_email} RETURN COUNT(result) AS count | {:result_email=>"bobby123@test.com"}
+ [36mCYPHER[0m [33m3ms[0m MATCH (result:`User`) WHERE result.email = {result_email} RETURN COUNT(result) AS count | {:result_email=>"bobby123@test.com"}
+ [36mCYPHER[0m [33m3ms[0m MATCH (result:`User`) WHERE result.email = {result_email} RETURN COUNT(result) AS count | {:result_email=>"bobby123@test.com"}
+ [36mCYPHER[0m [33m3ms[0m MATCH (result:`User`) WHERE result.email = {result_email} RETURN COUNT(result) AS count | {:result_email=>"bobby123@test.com"}
+ [36mCYPHER[0m [33m2ms[0m MATCH (result:`User`) WHERE result.email = {result_email} RETURN COUNT(result) AS count | {:result_email=>"bobby123@test.com"}
+ [36mCYPHER[0m [33m2ms[0m MATCH (result:`User`) WHERE result.email = {result_email} RETURN COUNT(result) AS count | {:result_email=>"bobby123@test.com"}
+ [36mCYPHER[0m [33m2ms[0m MATCH (result:`User`) WHERE result.email = {result_email} RETURN COUNT(result) AS count | {:result_email=>"bobby123@test.com"}
+ [36mCYPHER[0m [33m2ms[0m MATCH (result:`User`) WHERE result.email = {result_email} RETURN COUNT(result) AS count | {:result_email=>"bobby123@test.com"}
+ [36mCYPHER[0m [33m11ms[0m MATCH (n:`User`) RETURN n ORDER BY n.uuid LIMIT 1
+ [36mCYPHER[0m [33m2ms[0m MATCH (result:`User`) WHERE result.email = {result_email} RETURN COUNT(result) AS count | {:result_email=>"bobby123@test.com"}
+ [36mCYPHER[0m [33m2ms[0m MATCH (n:`User`) RETURN n ORDER BY n.uuid LIMIT 1
+ [36mCYPHER[0m [33m2ms[0m MATCH (result:`User`) WHERE result.email = {result_email} RETURN COUNT(result) AS count | {:result_email=>"bobby123@test.com"}
+ [36mCYPHER[0m [33m6ms[0m MATCH (result:`User`) WHERE result.email = {result_email} RETURN COUNT(result) AS count | {:result_email=>"bobby123@test.com"}
+ [36mCYPHER[0m [33m2ms[0m MATCH (result:`User`) WHERE result.email = {result_email} RETURN COUNT(result) AS count | {:result_email=>"bobby123@test.com"}
+ [36mCYPHER[0m [33m2ms[0m MATCH (n:`User`) RETURN n ORDER BY n.uuid LIMIT 1
+ [36mCYPHER[0m [33m2ms[0m MATCH (result:`User`) WHERE result.email = {result_email} RETURN COUNT(result) AS count | {:result_email=>"bobby123@test.com"}
+ [36mCYPHER[0m [33m3ms[0m MATCH (result:`User`) WHERE result.email = {result_email} RETURN COUNT(result) AS count | {:result_email=>"bobby123@test.com"}

@@ -144,3 +144,4 @@ ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
  [36mPerson#account[0m [33m13ms[0m MATCH (person7:`Person`), (result:`User`), person7<-[rel0:`role`]-(result:`User`) WHERE ID(person7) = {ID_person7_} RETURN result ORDER BY ID(result) LIMIT 1 | {:ID_person7_=>7}
  [36mCYPHER[0m [33m4ms[0m MATCH (n:`Person`) RETURN n ORDER BY n.uuid DESC LIMIT 1
  [36mPerson#account[0m [33m2ms[0m MATCH (person7:`Person`), (result:`User`), person7<-[rel0:`role`]-(result:`User`) WHERE ID(person7) = {ID_person7_} RETURN result ORDER BY ID(result) LIMIT 1 | {:ID_person7_=>7}
+ [36mCYPHER[0m [33m80ms[0m MATCH (n:`User`) RETURN n ORDER BY n.uuid LIMIT 1
