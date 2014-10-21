@@ -67,6 +67,13 @@ describe Person, type: :model do
       end
     end
 
+    describe '#experiences' do
+      it 'can have hosted experiences' do
+        person = create :person_with_hosted_experiences
+        expect(person.hosted_experiences).to have_at_least(4).items
+      end
+    end
+
     it 'should persist in database' do
       expect(subject.save).to be true
       expect(Person.first).to be_a Person

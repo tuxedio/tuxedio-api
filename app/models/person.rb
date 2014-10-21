@@ -6,6 +6,7 @@ class Person
   has_many :both, :friends, model_class: false
   has_many :out, :knows, model_class: self
   has_many :in, :knows_me, origin: :knows, model_class: self
+  has_many :out, :hosted_experiences, model_class: Experience
 
   property :bio
   property :gender
@@ -16,8 +17,8 @@ class Person
 
   validates :bio,         presence: true, length: { maximum: 255 }
   validates :website,     format: URI::regexp(%w(http https))
-  validates :gender,      inclusion: { in: ['male', 'female'] }, allow_nil: true
+  validates :gender,      inclusion: { in: %w(male female) }, allow_nil: true
   validates :hometown,    length: { maximum: 30 }
   validates :location,    length: { maximum: 30 }
-  validates :name,        presence: true, length: { maximum: 50  }
+  validates :name,        presence: true, length: { maximum: 50 }
 end
