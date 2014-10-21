@@ -3,6 +3,10 @@ class Person
 
   has_one :in, :account, model_class: User, origin: :role
 
+  has_many :both, :friends, model_class: false
+  has_many :out, :knows, model_class: self
+  has_many :in, :knows_me, origin: :knows, model_class: self
+
   property :bio
   property :gender
   property :website
