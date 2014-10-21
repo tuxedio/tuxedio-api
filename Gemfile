@@ -8,6 +8,7 @@ gem 'rails', '4.1.6'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'sendgrid'
 gem 'thin'
+gem 'jc-validates_timeliness'
 
 group :development do
   gem 'better_errors'

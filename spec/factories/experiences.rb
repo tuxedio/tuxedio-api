@@ -10,6 +10,13 @@ FactoryGirl.define do
       end
     end
 
+    trait :times do
+      after :create do |experience|
+        experience.times << create_list(:experience_time, 4)
+      end
+    end
+
     factory :hosted_experience, traits: [:hosted]
+    factory :experience_with_times, traits: [:times]
   end
 end
