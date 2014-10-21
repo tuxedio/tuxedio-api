@@ -1,6 +1,4 @@
 describe Experience, type: :model do
-  before { delete_db }
-
   subject { build :experience }
 
   describe '#location' do
@@ -25,14 +23,11 @@ describe Experience, type: :model do
   end
 
   describe '#host' do
+    after { delete_db }
+
     it 'can have a host' do
       experience = create :hosted_experience
       expect(experience.host).to be_a Person
     end
-  end
-
-  it 'should persist in database' do
-    expect(subject.save).to be true
-    expect(Experience.first).to be_an Experience
   end
 end

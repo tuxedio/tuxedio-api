@@ -1,5 +1,4 @@
 describe Person, type: :model do
-  before { delete_db }
 
   subject { build :person }
 
@@ -50,6 +49,8 @@ describe Person, type: :model do
     end
 
     describe '#friends' do
+      after { delete_db }
+
       it 'can have friends' do
         person = create :person
         friend = create :person
@@ -73,16 +74,12 @@ describe Person, type: :model do
         expect(person.hosted_experiences).to have_at_least(4).items
       end
     end
-
-    it 'should persist in database' do
-      expect(subject.save).to be true
-      expect(Person.first).to be_a Person
-    end
   end
 
   describe '#account' do
     context 'email already registered' do
       before { subject.save }
+      after { delete_db }
 
       it 'should save the account' do
         user = create :user
