@@ -30,4 +30,15 @@ describe Experience, type: :model do
       expect(experience.host).to be_a Person
     end
   end
+
+  describe '#times' do
+    after { delete_db }
+
+    it 'can have times' do
+      experience = create :experience_with_times
+
+      expect(experience.times.first).to be_an ExperienceTime
+      expect(experience.times).to have_at_least(4).items
+    end
+  end
 end

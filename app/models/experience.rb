@@ -3,6 +3,8 @@ class Experience
 
   has_one :in, :host, model_class: false
 
+  has_many :out, :times, model_class: ExperienceTime
+
   property :name
   property :location
   property :description
