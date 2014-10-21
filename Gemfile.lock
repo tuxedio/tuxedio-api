@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/andreasronge/neo4j.git
-  revision: 71094fb47705c717a0b1065963edfa32e462e392
+  revision: 265b9b72229c4ec6c497ed4e373473ca61d20fa4
   specs:
     neo4j (3.0.1)
       active_attr (~> 0.8)
@@ -80,10 +80,10 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     eventmachine (1.0.3)
-    factory_girl (4.4.0)
+    factory_girl (4.5.0)
       activesupport (>= 3.0.0)
-    factory_girl_rails (4.4.1)
-      factory_girl (~> 4.4.0)
+    factory_girl_rails (4.5.0)
+      factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
     faker (1.4.3)
       i18n (~> 0.5)
@@ -112,7 +112,7 @@ GEM
     httparty (0.13.1)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
-    httpclient (2.4.0)
+    httpclient (2.5.1)
     i18n (0.6.11)
     json (1.8.1)
     listen (2.7.11)
@@ -123,7 +123,7 @@ GEM
     mail (2.6.1)
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
-    mime-types (2.4.2)
+    mime-types (2.4.3)
     minitest (5.4.2)
     multi_json (1.10.1)
     multi_xml (0.5.5)
