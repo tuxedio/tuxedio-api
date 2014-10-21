@@ -1,0 +1,9 @@
+machine:
+  services:
+    - neo4j
+
+test:
+  pre:
+    - cp config/secrets.yml.ci config/secrets.yml
+  override:
+    - bundle exec rspec --format documentation
