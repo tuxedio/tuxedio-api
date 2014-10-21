@@ -1,6 +1,7 @@
 class ExperienceTime
   include Neo4j::ActiveNode
 
+  # TODO: dependant destroy experience times with experience
   has_one :in, :experience, model_class: Experience
 
   property :starts_at, type: DateTime
