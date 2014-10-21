@@ -77,13 +77,11 @@ describe Person, type: :model do
   end
 
   describe '#account' do
-    context 'email already registered' do
-      before { subject.save }
-      after { delete_db }
+    subject { create :person_with_account }
+    after { delete_db }
 
+    context 'email already registered' do
       it 'should save the account' do
-        user = create :user
-        subject.account = user
         expect(subject.account).to be_a User
       end
     end

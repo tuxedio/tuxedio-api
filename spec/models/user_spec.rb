@@ -1,42 +1,25 @@
 describe User, type: :model do
-  before { delete_db }
+  subject { create :user_with_role }
 
-  subject do
-    User.new(
-      username: 'bobby123',
-      password: 'somethinsomething',
-      email:    'bobby123@test.com')
-  end
+  describe '#role' do
+    after { delete_db }
 
-  describe 'can create an account' do
-
-    it 'should create an email' do
-      expect(subject.email).to eq 'bobby123@test.com'
+    it 'should be able to have a role' do
+      expect(subject.role).to be_a Person
     end
 
-    it 'should create a username' do
-      expect(subject.username).to eq 'bobby123'
-    end
-
-    it 'should create a password' do
-      expect(subject.password).to_not be nil
-    end
-
-    it 'should persist in database' do
-      expect(subject.save).to be true
-      expect(User.first).to be_a User
+    it 'should remove role upon deletion' do
+      subject.destroy
+      expect(Person.count).to eq 0
     end
   end
 
-  describe 'cannot create an account' do
+  describe '#email' do
     context 'email already registered' do
-      before { subject.save }
+      after { delete_db }
 
       it 'should not save the account' do
-        user = User.new(
-          username: 'bob',
-          password: 'somethin',
-          email:    'bobby123@test.com')
+        user = build :user, email: subject.email
 
         expect(user.save).to be false
       end

@@ -61,4 +61,6 @@ class User
     :recoverable, :rememberable, :trackable, :validatable
 
   has_one :out, :role, type: :role, model_class: false
+
+  before_destroy { self.role.destroy }
 end
