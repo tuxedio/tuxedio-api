@@ -13,7 +13,15 @@ FactoryGirl.define do
       end
     end
 
+    trait :with_account do
+      after :create do |person|
+        person.account = create :user
+      end
+    end
+
     factory :person_with_hosted_experiences,
       traits: [:with_hosted_experiences]
+
+    factory :person_with_account, traits: [:with_account]
   end
 end
