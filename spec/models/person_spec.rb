@@ -51,20 +51,12 @@ describe Person, type: :model do
     describe '#friends' do
       after { delete_db }
 
-      it 'can have friends' do
+      it 'can follow and be followed' do
         person = create :person
         friend = create :person
-        person.friends << friend
-        expect(person.friends).to include friend
-      end
-
-      it 'can know and be known' do
-        person = create :person
-        friend = create :person
-        person.knows << friend
-        friend.knows_me << person
-        expect(person.friends).to include friend
-        expect(friend.friends).to include person
+        person.following << friend
+        expect(person.following).to include friend
+        expect(friend.followers).to include person
       end
     end
 
