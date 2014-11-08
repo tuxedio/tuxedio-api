@@ -1,10 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.1.3'
-
 gem 'devise-neo4j', github: 'benjackson/devise-neo4j'
 gem 'neo4j',        github: 'andreasronge/neo4j'
-gem 'rails', '4.1.6'
+gem 'rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'sendgrid'
 gem 'thin'

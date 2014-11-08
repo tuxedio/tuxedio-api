@@ -249,7 +249,7 @@ DEPENDENCIES
   jc-validates_timeliness
   neo4j!
   pry-rails
-  rails (= 4.1.6)
+  rails
   rb-fchange
   rb-fsevent
   rb-inotify
