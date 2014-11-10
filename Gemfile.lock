@@ -23,8 +23,9 @@ GIT
       warden (~> 1.2.1)
 
 GIT
-  remote: git://github.com/lynndylanhurley/devise_token_auth.git
-  revision: 34e4bcc62222d21c7f12b9691a90f7c81e24548a
+  remote: git://github.com/tuxedio/devise_token_auth.git
+  revision: 73b8b0368e366b0abba43bae7cb8c19f27a9b54a
+  branch: remove-ar-dependency
   specs:
     devise_token_auth (0.1.30.beta3)
       devise (~> 3.3)
