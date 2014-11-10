@@ -11,6 +11,7 @@ gem 'jc-validates_timeliness'
 gem 'devise_token_auth', github: 'tuxedio/devise_token_auth',
   branch: 'remove-ar-dependency'
 gem 'devise-neo4j', github: 'benjackson/devise-neo4j'
+gem 'rack-cors', require: 'rack/cors'
 gem 'omniauth'
 
 group :development do
