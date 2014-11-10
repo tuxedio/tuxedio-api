@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.1.4'
+
 gem 'neo4j',        github: 'andreasronge/neo4j'
 gem 'rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
