@@ -22,6 +22,15 @@ GIT
       railties (>= 3.1)
       warden (~> 1.2.1)
 
+GIT
+  remote: git://github.com/tuxedio/devise_token_auth.git
+  revision: 73b8b0368e366b0abba43bae7cb8c19f27a9b54a
+  branch: remove-ar-dependency
+  specs:
+    devise_token_auth (0.1.30.beta3)
+      devise (~> 3.3)
+      rails (~> 4.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -107,6 +116,7 @@ GEM
     guard-rspec (4.3.1)
       guard (~> 2.1)
       rspec (>= 2.14, < 4.0)
+    hashie (3.3.1)
     hike (1.2.3)
     hitimes (1.2.2)
     httparty (0.13.1)
@@ -141,6 +151,9 @@ GEM
       os
       zip
     net-http-persistent (2.9.4)
+    omniauth (1.2.2)
+      hashie (>= 1.2, < 4)
+      rack (~> 1.0)
     orm_adapter (0.5.0)
     os (0.9.6)
     pry (0.10.1)
@@ -241,6 +254,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   devise-neo4j!
+  devise_token_auth!
   factory_girl_rails
   faker
   guard-bundler
@@ -248,8 +262,9 @@ DEPENDENCIES
   guard-rspec
   jc-validates_timeliness
   neo4j!
+  omniauth
   pry-rails
-  rails (= 4.1.6)
+  rails
   rb-fchange
   rb-fsevent
   rb-inotify

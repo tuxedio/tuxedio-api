@@ -1,14 +1,17 @@
 source 'https://rubygems.org'
 
-ruby '2.1.3'
+ruby '2.1.4'
 
-gem 'devise-neo4j', github: 'benjackson/devise-neo4j'
 gem 'neo4j',        github: 'andreasronge/neo4j'
-gem 'rails', '4.1.6'
+gem 'rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'sendgrid'
 gem 'thin'
 gem 'jc-validates_timeliness'
+gem 'devise_token_auth', github: 'tuxedio/devise_token_auth',
+  branch: 'remove-ar-dependency'
+gem 'devise-neo4j', github: 'benjackson/devise-neo4j'
+gem 'omniauth'
 
 group :development do
   gem 'better_errors'
