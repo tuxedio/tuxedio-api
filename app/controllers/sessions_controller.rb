@@ -2,7 +2,7 @@ class SessionsController < Devise::SessionsController
   respond_to :json
   skip_before_filter :verify_authenticity_token, if: :json_request?
 
-  acts_as_token_authentication_handler_for User
+  acts_as_token_authentication_handler_for User, fallback_to_devise: false
 
   skip_before_filter :authenticate_entity_from_token!
   skip_before_filter :authenticate_entity!
@@ -14,10 +14,10 @@ class SessionsController < Devise::SessionsController
     @user = current_user
 
     respond_to do |format|
-      format.json {
-        render json: {
-          message:    'Logged in',
-          auth_token: @user.authentication_token
+      format.json { render json: {
+          message: 'Logged in',
+          uid: @user.email,
+          auth_headers: @user.authentication_token
         }, status: HTTP_OK
       }
     end

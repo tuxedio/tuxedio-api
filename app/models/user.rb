@@ -3,11 +3,11 @@ class User
 
   acts_as_token_authenticatable
 
-  devise :database_authenticatable,
-    :recoverable, :rememberable, :trackable, :validatable,
-    :lockable
+  devise :database_authenticatable, :registerable,
+    :recoverable, :rememberable, :trackable, :validatable
 
   property :username, type: String
+  index :username
   property :encrypted_password
   property :created_at, type: DateTime
   property :updated_at, type: DateTime
@@ -48,6 +48,9 @@ class User
 
   ## Token authenticatable
   property :authentication_token, type: String, null: true, index: :exact
+
+  validates_uniqueness_of :email, case_sensitive: false
+  validates_uniqueness_of :username
 
   has_one :out, :role, type: :role, model_class: false
 

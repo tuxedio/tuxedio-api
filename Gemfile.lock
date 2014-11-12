@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: git://github.com/neo4jrb/neo4j.git
-  revision: d3b2fc1efac7dd99099ab097653816340e203cda
+  revision: a2ade2384ef5f71a9d6311c573fe4d63672365c1
   specs:
     neo4j (3.0.3)
       active_attr (~> 0.8)
@@ -150,7 +150,7 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.4.3)
-    minitest (5.4.2)
+    minitest (5.4.3)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
