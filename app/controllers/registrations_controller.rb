@@ -17,9 +17,8 @@ class RegistrationsController < Devise::RegistrationsController
       message = "Successfully created new account for email #{sign_up_params[:email]}."
     else
       clean_up_passwords resource
-      binding.pry
-      status = HTTP_INTERNAL_SERVER_ERROR
-      message = "Failed to create new account for email #{sign_up_params[:email]}."
+      status = HTTP_CONFLICT
+      message = resource.errors.messages
     end
 
     respond_to do |format|
