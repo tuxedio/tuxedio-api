@@ -11,7 +11,7 @@ gem 'jc-validates_timeliness'
 gem 'devise'
 gem 'devise-neo4j', github: 'benjackson/devise-neo4j'
 gem 'rack-cors', require: 'rack/cors'
-gem 'simple_token_authentication', path: '../simple_token_authentication'
+gem 'simple_token_authentication', github: 'tuxedio/simple_token_authentication'
 gem 'omniauth'
 
 group :development do
