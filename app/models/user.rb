@@ -41,11 +41,14 @@ class User
 
   # Tokens
   property :tokens, type: String
+
   ## Confirmable
   # property :confirmation_token
   # index :confirmation_token
   # property :confirmed_at, type: DateTime
   # property :confirmation_sent_at, type: DateTime
+  # property :unconfirmed_email
+  # property :confirmation_url
 
   ## Lockable
   #  property :failed_attempts, type: Integer, default: 0
