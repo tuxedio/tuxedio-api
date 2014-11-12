@@ -1,27 +1,20 @@
 class User
   include Neo4j::ActiveNode
-  #
-  # Neo4j.rb needs to have property definitions before any validations. So, the property block needs to come before
-  # loading your devise modules.
-  #
-  # If you add another devise module (such as :lockable, :confirmable, or :token_authenticatable), be sure to
-  # uncomment the property definitions for those modules. Otherwise, the unused property definitions can be deleted.
-  #
 
-  property :username, type:   String
-  property :facebook_token, type: String
-  index :facebook_token
+  acts_as_token_authenticatable
 
+  devise :database_authenticatable,
+    :recoverable, :rememberable, :trackable, :validatable,
+    :lockable
+
+  property :username, type: String
+  property :encrypted_password
   property :created_at, type: DateTime
   property :updated_at, type: DateTime
 
   ## Database authenticatable
   property :email, type: String, null: false, default: ""
   index :email
-
-  property :encrypted_password
-
-  ## If you include devise modules, uncomment the properties below.
 
   ## Rememberable
   property :remember_created_at, type: DateTime
@@ -39,9 +32,6 @@ class User
   property :current_sign_in_ip, type:  String
   property :last_sign_in_ip, type: String
 
-  # Tokens
-  property :tokens, type: String
-
   ## Confirmable
   # property :confirmation_token
   # index :confirmation_token
@@ -51,19 +41,13 @@ class User
   # property :confirmation_url
 
   ## Lockable
-  #  property :failed_attempts, type: Integer, default: 0
-  # property :locked_at, type: DateTime
-  #  property :unlock_token, type: String,
-  # index :unlock_token
+  property :failed_attempts, type: Integer, default: 0
+  property :locked_at, type: DateTime
+  property :unlock_token, type: String
+  index :unlock_token
 
   ## Token authenticatable
-  # property :authentication_token, type: String, null: true, index: :exact
-
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable,
-    :omniauthable
+  property :authentication_token, type: String, null: true, index: :exact
 
   has_one :out, :role, type: :role, model_class: false
 

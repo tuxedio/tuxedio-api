@@ -2,15 +2,16 @@ source 'https://rubygems.org'
 
 ruby '2.1.4'
 
-gem 'neo4j',        github: 'andreasronge/neo4j'
+gem 'neo4j', github: 'neo4jrb/neo4j'
 gem 'rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'sendgrid'
 gem 'thin'
 gem 'jc-validates_timeliness'
-gem 'devise_token_auth', path: '../devise_token_auth'
+gem 'devise'
 gem 'devise-neo4j', github: 'benjackson/devise-neo4j'
 gem 'rack-cors', require: 'rack/cors'
+gem 'simple_token_authentication', path: '../simple_token_authentication'
 gem 'omniauth'
 
 group :development do
@@ -29,6 +30,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'pry-rails'
+  gem 'pry-byebug', github: 'deivid-rodriguez/pry-byebug'
   gem 'rspec-collection_matchers'
   gem 'rspec-rails'
   gem 'spring-commands-rspec'

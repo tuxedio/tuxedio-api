@@ -27,11 +27,14 @@ module TuxedioApi
 
      config.middleware.insert_before 'ActionDispatch::Static', 'Rack::Cors' do
        allow do
+         # TODO: Limit origins in production
          origins '*'
          resource '*',
            headers: :any,
            methods: [:get, :post, :delete, :put, :options, :head]
        end
      end
+
+     config.autoload_paths << Rails.root.join('lib')
   end
 end
