@@ -9,6 +9,8 @@ class SessionsController < Devise::SessionsController
   before_filter :authenticate_entity_from_token!, :only => [:destroy]
   before_filter :authenticate_entity!, :only => [:destroy]
 
+  # after_database_authentication :add_token_expiry
+
   def create
     warden.authenticate!(:scope => resource_name)
     @user = current_user
@@ -17,7 +19,7 @@ class SessionsController < Devise::SessionsController
       format.json { render json: {
           message: 'Logged in',
           uid: @user.email,
-          auth_headers: @user.authentication_token
+          authentication_token: @user.authentication_token
         }, status: HTTP_OK
       }
     end
@@ -48,6 +50,10 @@ class SessionsController < Devise::SessionsController
   end
 
   private
+
+  def add_token_expiry
+    @user.authentication_token_expires_at 1.hour.from_now
+  end
 
   def json_request?
     request.format.json?

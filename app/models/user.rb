@@ -48,6 +48,7 @@ class User
 
   ## Token authenticatable
   property :authentication_token, type: String, null: true, index: :exact
+  property :authentication_token_expires_at, type: DateTime
 
   validates_uniqueness_of :email, case_sensitive: false
   validates_uniqueness_of :username

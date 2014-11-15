@@ -39,6 +39,13 @@ GIT
       actionpack (>= 3.2.6, < 5)
       devise (~> 3.2)
 
+PATH
+  remote: ../rspec_api_helpers
+  specs:
+    rspec_api_helpers (0.0.1)
+      activesupport (~> 4.0)
+      factory_girl (~> 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -287,6 +294,7 @@ DEPENDENCIES
   rb-inotify
   rspec-collection_matchers
   rspec-rails
+  rspec_api_helpers!
   sdoc (~> 0.4.0)
   sendgrid
   simple_token_authentication!
