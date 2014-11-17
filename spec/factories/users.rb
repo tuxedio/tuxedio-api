@@ -12,4 +12,13 @@ FactoryGirl.define do
 
     factory :user_with_role, traits: [:with_role]
   end
+
+  factory :login_creds, class: Hash do
+    user {{
+      email: Faker::Internet.email,
+      password: Faker::Internet.password
+    }}
+
+    initialize_with { attributes }
+  end
 end
