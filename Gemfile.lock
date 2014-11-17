@@ -31,6 +31,14 @@ GIT
       railties (~> 4)
 
 GIT
+  remote: git://github.com/sweatshirtio/rspec_api_helpers.git
+  revision: b45485ee61a0e3aeef3a878d240bfc560a6694c9
+  specs:
+    rspec_api_helpers (0.0.1)
+      activesupport (~> 4.0)
+      factory_girl (~> 4.0)
+
+GIT
   remote: git://github.com/tuxedio/simple_token_authentication.git
   revision: 2eec7464752e3c157d2ea610757ad04ff69f041e
   specs:
@@ -38,13 +46,6 @@ GIT
       actionmailer (>= 3.2.6, < 5)
       actionpack (>= 3.2.6, < 5)
       devise (~> 3.2)
-
-PATH
-  remote: ../rspec_api_helpers
-  specs:
-    rspec_api_helpers (0.0.1)
-      activesupport (~> 4.0)
-      factory_girl (~> 4.0)
 
 GEM
   remote: https://rubygems.org/
