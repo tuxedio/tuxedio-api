@@ -6,6 +6,7 @@ namespace :db do
   task :seed do
     FactoryGirl.create :user,
       email: 'example@example.com',
-      password: 'foobar123'
+      password: 'foobar123',
+      authentication_token: '12345'
   end
 end
