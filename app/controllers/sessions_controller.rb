@@ -6,21 +6,23 @@ class SessionsController < Devise::SessionsController
 
   skip_before_filter :authenticate_entity_from_token!
   skip_before_filter :authenticate_entity!
-  before_filter :authenticate_entity_from_token!, :only => [:destroy]
-  before_filter :authenticate_entity!, :only => [:destroy]
+  skip_before_filter :verify_signed_out_user, only: :destroy
+  before_filter :authenticate_entity_from_token!, only: [:destroy]
+  before_filter :authenticate_entity!, only: [:destroy]
+
 
   # after_database_authentication :add_token_expiry
 
   def create
-    warden.authenticate!(:scope => resource_name)
+    warden.authenticate!(scope: resource_name)
     @user = current_user
 
     respond_to do |format|
       format.json { render json: {
-          message: 'Logged in',
+          message: 'Logged in successfully.',
           uid: @user.email,
           authentication_token: @user.authentication_token
-        }, status: HTTP_OK
+        }, status: 200
       }
     end
   end
@@ -35,7 +37,7 @@ class SessionsController < Devise::SessionsController
         format.json {
           render json: {
             message: 'Logged out successfully.'
-          }, status: HTTP_OK
+          }, status: 200
         }
       end
     else
@@ -43,7 +45,7 @@ class SessionsController < Devise::SessionsController
         format.json {
           render json: {
             message: 'Failed to log out. User must be logged in.'
-          }, status: HTTP_UNAUTHORIZED
+          }, status: 401
         }
       end
     end
