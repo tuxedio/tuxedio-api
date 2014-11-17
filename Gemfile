@@ -8,7 +8,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'sendgrid'
 gem 'thin'
 gem 'jc-validates_timeliness'
-gem 'devise'
+gem 'devise', github: 'plataformatec/devise'
 gem 'devise-neo4j', github: 'benjackson/devise-neo4j'
 gem 'rack-cors', require: 'rack/cors'
 gem 'simple_token_authentication', github: 'tuxedio/simple_token_authentication'
