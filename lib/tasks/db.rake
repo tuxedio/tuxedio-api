@@ -8,5 +8,7 @@ namespace :db do
       email: 'example@example.com',
       password: 'foobar123',
       authentication_token: '12345'
+
+    FactoryGirl.create_list :experience, 100
   end
 end
