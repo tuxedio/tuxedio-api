@@ -3,6 +3,7 @@ FactoryGirl.define do
     username { Faker::Name.name }
     sequence(:email) { |n| "#{Faker::Internet.email}#{n}" }
     password { Faker::Internet.password }
+    authentication_token { Faker::Lorem.characters 10 }
 
     trait :with_role do
       after :create do |user|
