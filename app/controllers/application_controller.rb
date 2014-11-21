@@ -1,12 +1,7 @@
 class ApplicationController < ActionController::Base
-  # protect_from_forgery with: :null_session
-  require 'auth_token'
-
   before_filter :configure_permitted_parameters, if: :devise_controller?
-
   respond_to :json
-
-  acts_as_token_authentication_handler_for User, fallback_to_devise: false
+  skip_before_filter :verify_authenticity_token, if: :json_request?
 
   protected
 
