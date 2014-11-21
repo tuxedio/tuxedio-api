@@ -1,12 +1,14 @@
 class ApplicationController < ActionController::Base
   # protect_from_forgery with: :null_session
+  require 'auth_token'
+
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
   respond_to :json
 
   acts_as_token_authentication_handler_for User, fallback_to_devise: false
 
-  private
+  protected
 
   def configure_permitted_parameters
     #TODO: Rename to login?
@@ -19,12 +21,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def set_user
-    @user = current_user
+  def verify_jwt_token
+    token = extract_token_from_headers(request.headers)
+    head :unauthorized unless AuthToken.valid?(token)
   end
 
-  def jwt_encode_payload(payload)
-    token = JWT.encode payload, Rails.application.secrets.secret_key_base
-    payload.merge({ jwt_token: token })
+  def extract_token_from_headers(headers)
+    auth_headers = headers['Authorization'] || ''
+    auth_headers.split(' ').last
   end
 end

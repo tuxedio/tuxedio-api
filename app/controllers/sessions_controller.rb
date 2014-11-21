@@ -1,54 +1,22 @@
+# This is an example of how to extend the devise sessions controller
+# to support JSON based authentication and issuing a JWT.
 class SessionsController < Devise::SessionsController
-  respond_to :json
+  require 'auth_token'
 
-  acts_as_token_authentication_handler_for User, only: [:destroy],
-    fallback_to_devise: false
-
-  # skip_before_filter :verify_authenticity_token, if: :json_request?
+  skip_before_action :verify_authenticity_token
+  before_filter :verify_jwt_token, except: [:create]
   skip_before_filter :verify_signed_out_user, only: :destroy
 
   def create
-    warden.authenticate!(scope: resource_name)
-    @user = current_user
+    self.resource = warden.authenticate!(auth_options)
+    set_flash_message(:notice, :signed_in) if is_flashing_format?
+    sign_in(resource_name, resource)
+    yield resource if block_given?
 
-    payload = {
-      message: 'Logged in successfully.',
-      uid: @user.email,
-      authentication_token: @user.authentication_token
-    }
+    token = AuthToken.new({ user_id: resource.id }).token
 
-    respond_to do |format|
-      format.json { render json: jwt_encode_payload(payload), status: 200 }
+    respond_with resource, location: after_sign_in_path_for(resource) do |format|
+      format.json { render json: {user: resource.email, token: token} }
     end
-  end
-
-  def destroy
-    if user_signed_in?
-      @user = current_user
-      @user.authentication_token = nil
-      @user.save
-
-      respond_to do |format|
-        format.json {
-          render json: {
-            message: 'Logged out successfully.'
-          }, status: 200
-        }
-      end
-    else
-      respond_to do |format|
-        format.json {
-          render json: {
-            message: 'Failed to log out. User must be logged in.'
-          }, status: 401
-        }
-      end
-    end
-  end
-
-  private
-
-  def json_request?
-    request.format.json?
   end
 end
