@@ -25,16 +25,6 @@ module TuxedioApi
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
     end
 
-     config.middleware.insert_before 'ActionDispatch::Static', 'Rack::Cors' do
-       allow do
-         # TODO: Limit origins in production
-         origins '*'
-         resource '*',
-           headers: :any,
-           methods: [:get, :post, :delete, :put, :options, :head]
-       end
-     end
-
      config.autoload_paths << Rails.root.join('lib')
   end
 end
