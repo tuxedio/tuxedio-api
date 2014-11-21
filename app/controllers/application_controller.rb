@@ -22,4 +22,9 @@ class ApplicationController < ActionController::Base
   def set_user
     @user = current_user
   end
+
+  def jwt_encode_payload(payload)
+    token = JWT.encode payload, Rails.application.secrets.secret_key_base
+    payload.merge({ jwt_token: token })
+  end
 end

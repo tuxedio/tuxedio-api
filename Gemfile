@@ -13,6 +13,7 @@ gem 'devise-neo4j', github: 'benjackson/devise-neo4j'
 gem 'rack-cors', require: 'rack/cors'
 gem 'simple_token_authentication', github: 'tuxedio/simple_token_authentication'
 gem 'omniauth'
+gem 'jwt', '1.1', github: 'progrium/ruby-jwt'
 
 group :test do
   gem 'rspec_api_helpers', github: 'sweatshirtio/rspec_api_helpers'

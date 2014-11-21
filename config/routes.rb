@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
 
   devise_for :users, skip: [:sessions, :registrations, :passwords]
+
   devise_scope :user do
     post 'login' => 'sessions#create', as: :login
     delete 'logout' => 'sessions#destroy', as: :logout
