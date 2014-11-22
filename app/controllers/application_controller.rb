@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def extract_token_from_headers(headers)
-    auth_headers = headers['Authorization'] || ''
+    auth_headers = headers['Authentication'] || ''
     auth_headers.split(' ').last
   end
 end

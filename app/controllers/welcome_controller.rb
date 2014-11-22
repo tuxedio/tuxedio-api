@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    render json: Experience.all, status: HTTP_OK
+    render json: 'Welcome to Tuxedio!', status: HTTP_OK
   end
 end
