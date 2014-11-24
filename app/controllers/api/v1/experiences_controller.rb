@@ -18,9 +18,8 @@ module Api
       private
 
       def set_v1_experience
-        @v1_experience = Experience.find(params[:id])
+        @v1_experience = Experience.find params[:id]
       end
-
     end
   end
 end

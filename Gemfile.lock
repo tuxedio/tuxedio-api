@@ -56,15 +56,6 @@ GIT
       activesupport (~> 4.0)
       factory_girl (~> 4.0)
 
-GIT
-  remote: git://github.com/tuxedio/simple_token_authentication.git
-  revision: 2eec7464752e3c157d2ea610757ad04ff69f041e
-  specs:
-    simple_token_authentication (1.6.0)
-      actionmailer (>= 3.2.6, < 5)
-      actionpack (>= 3.2.6, < 5)
-      devise (~> 3.2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -101,12 +92,6 @@ GEM
     bcrypt (3.1.9)
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
-    better_errors (2.0.0)
-      coderay (>= 1.0.0)
-      erubis (>= 2.6.6)
-      rack (>= 0.9.0)
-    binding_of_caller (0.7.2)
-      debug_inspector (>= 0.0.1)
     builder (3.2.2)
     byebug (3.5.1)
       columnize (~> 0.8)
@@ -117,7 +102,6 @@ GEM
     coderay (1.1.0)
     columnize (0.8.9)
     daemons (1.1.9)
-    debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     diff-lcs (1.2.5)
     erubis (2.7.0)
@@ -255,9 +239,6 @@ GEM
       json
       json
     slop (3.6.0)
-    spring (1.1.3)
-    spring-commands-rspec (1.0.2)
-      spring (>= 0.9.1)
     sprockets (2.12.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -287,8 +268,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  better_errors
-  binding_of_caller
   devise!
   devise-neo4j!
   factory_girl_rails
@@ -312,7 +291,4 @@ DEPENDENCIES
   rspec_api_helpers!
   sdoc (~> 0.4.0)
   sendgrid
-  simple_token_authentication!
-  spring
-  spring-commands-rspec
   thin

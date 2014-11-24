@@ -1,5 +1,7 @@
 class WelcomeController < ApplicationController
   def index
-    render json: 'Welcome to Tuxedio!', status: HTTP_OK
+    # TODO: Add dynamic hypermedia routing
+    hypermedia = { experiences: v1_experiences_url }
+    render json: hypermedia, status: :ok
   end
 end
