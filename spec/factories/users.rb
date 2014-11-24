@@ -3,7 +3,6 @@ FactoryGirl.define do
     username { Faker::Name.name }
     sequence(:email) { |n| "#{Faker::Internet.email}#{n}" }
     password { Faker::Internet.password }
-    authentication_token { Faker::Lorem.characters 10 }
 
     trait :with_role do
       after :create do |user|
@@ -18,6 +17,17 @@ FactoryGirl.define do
     user {{
       email: Faker::Internet.email,
       password: Faker::Internet.password
+    }}
+
+    initialize_with { attributes }
+  end
+
+  factory :user_registration, class: Hash do
+    user {{
+      username: 'Jon Snow',
+      email: 'game@thrones.com',
+      password: 'You know nothing, Jon Snow',
+      password_confirmation: 'You know nothing, Jon Snow'
     }}
 
     initialize_with { attributes }
