@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    #TODO: Rename to login?
     devise_parameter_sanitizer.for(:sign_up) do |u|
       u.permit :username, :email, :password, :password_confirmation
     end
@@ -17,8 +16,11 @@ class ApplicationController < ActionController::Base
   end
 
   def verify_jwt_token
-    token = extract_token_from_headers(request.headers)
-    head :unauthorized unless AuthToken.valid?(token)
+    token = extract_token_from_headers request.headers
+
+    unless AuthToken.valid? token
+      render json: { message: 'Authentication failed' }, status: :unauthorized
+    end
   end
 
   def extract_token_from_headers(headers)
