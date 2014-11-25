@@ -1,3 +1,5 @@
+![Stories in Ready](https://badge.waffle.io/tuxedio/tuxedio-api.png?label=ready&title=Ready) ![circle-badge](https://circleci.com/gh/tuxedio/tuxedio-api.svg?style=shield&circle-token=:circle-token)
+
 Tuxedio API
 ===========
 
