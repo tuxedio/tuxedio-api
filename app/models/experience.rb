@@ -5,6 +5,7 @@ class Experience
 
   has_many :out, :times, model_class: ExperienceTime
 
+  property :id
   property :name
   property :location
   property :description
