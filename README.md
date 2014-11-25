@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/tuxedio/tuxedio-api.png?label=ready&title=Ready)](https://waffle.io/tuxedio/tuxedio-api)
 Tuxedo
 ======
 
