@@ -13,6 +13,8 @@ gem 'devise-neo4j', github: 'benjackson/devise-neo4j'
 gem 'rack-cors', require: 'rack/cors'
 gem 'omniauth'
 gem 'jwt', '1.1', github: 'progrium/ruby-jwt'
+gem 'factory_girl_rails'
+gem 'faker'
 
 group :test do
   gem 'rspec_api_helpers', github: 'sweatshirtio/rspec_api_helpers'
@@ -28,8 +30,6 @@ group :development do
 end
 
 group :development, :test do
-  gem 'factory_girl_rails'
-  gem 'faker'
   gem 'pry-rails'
   gem 'pry-byebug', github: 'deivid-rodriguez/pry-byebug', platforms: [:mri_21]
   gem 'rspec-collection_matchers'
