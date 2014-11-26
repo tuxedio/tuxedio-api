@@ -17,12 +17,12 @@ describe Api::V1::SessionsController do
   end
 
   describe '#login' do
-    it 'responds 200 upon valid authentication with username and password' do
+    it 'responds 200 upon valid authentication with handle and password' do
       post v1_login_path, valid_creds, headers_for(:json)
       expect(response).to have_http_status 200
     end
 
-    it 'responds 401 upon invalid authentication with username and password' do
+    it 'responds 401 upon invalid authentication with handle and password' do
       post v1_login_path, invalid_creds, headers_for(:json)
       expect(response).to have_http_status 401
     end

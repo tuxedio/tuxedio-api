@@ -25,4 +25,21 @@ describe User, type: :model do
       end
     end
   end
+
+  describe '#handle' do
+    it 'is unique' do
+      user = build :user, handle: subject.handle
+
+      expect(user).to_not be_valid
+    end
+
+    it 'has a reasonable length (between 3..20)' do
+      users = [
+        build(:user, handle: 'a' * 21),
+        build(:user, handle: 'a' * 2)
+      ]
+
+      users.each{ |user| expect(user).to_not be_valid }
+    end
+  end
 end

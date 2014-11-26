@@ -4,8 +4,8 @@ class User
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
 
-  property :username, type: String
-  index :username
+  property :handle, type: String
+  index :handle
   property :encrypted_password
   property :created_at, type: DateTime
   property :updated_at, type: DateTime
@@ -49,7 +49,9 @@ class User
   property :authentication_token_expires_at, type: DateTime
 
   validates_uniqueness_of :email, case_sensitive: false
-  validates_uniqueness_of :username
+  validates_uniqueness_of :handle
+
+  validates :handle, length: { in: 3..20 }
 
   has_one :out, :role, type: :role, model_class: false
 
