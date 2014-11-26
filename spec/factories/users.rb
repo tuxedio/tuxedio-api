@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :user do
-    username { Faker::Name.name }
+    handle { Faker::Internet.user_name 3..20 }
     sequence(:email) { |n| "#{Faker::Internet.email}#{n}" }
     password { Faker::Internet.password }
 
@@ -24,7 +24,7 @@ FactoryGirl.define do
 
   factory :user_registration, class: Hash do
     user {{
-      username: 'Jon Snow',
+      handle: 'Jon Snow',
       email: 'game@thrones.com',
       password: 'You know nothing, Jon Snow',
       password_confirmation: 'You know nothing, Jon Snow'

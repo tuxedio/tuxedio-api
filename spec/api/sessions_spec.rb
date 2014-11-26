@@ -11,13 +11,13 @@ describe Api::V1::SessionsController do
   end
 
   describe '#login' do
-    it 'responds with 200 HTTP status with good username/password' do
+    it 'responds with 200 HTTP status with good handle/password' do
       post v1_login_path, valid_creds, headers_for(:json)
 
       expect(response).to have_http_status 200
     end
 
-    it 'responds with 401 HTTP status with bad username/password' do
+    it 'responds with 401 HTTP status with bad handle/password' do
       post v1_login_path, invalid_creds, headers_for(:json)
 
       expect(response).to have_http_status 401

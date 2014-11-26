@@ -6,5 +6,5 @@ en:
           attributes:
             email:
               taken: 'This email address has already signed up. Forgot your password?'
-            username:
-              taken: 'This username has already been registered. Please pick a new one.'
+            handle:
+              taken: 'This handle has already been registered. Please pick a new one.'
