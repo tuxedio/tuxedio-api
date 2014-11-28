@@ -80,3 +80,6 @@ pickle-email-*.html
 # Environment files that may contain sensitive data
 .env
 .powenv
+
+# neo4j
+/db/neo4j/*

@@ -11,28 +11,20 @@ GIT
       warden (~> 1.2.1)
 
 GIT
-  remote: git://github.com/deivid-rodriguez/pry-byebug.git
-  revision: babf5ecab820017cb9d526acbdcc2b70335034cb
-  specs:
-    pry-byebug (2.0.0)
-      byebug (~> 3.4)
-      pry (~> 0.10)
-
-GIT
   remote: git://github.com/neo4jrb/neo4j.git
-  revision: 19ad2861d3662863e66beddde295a3b60e1cac55
+  revision: 84d422e9ce3b571ec601e7c790bbfd2650a171c0
   specs:
-    neo4j (3.0.4)
+    neo4j (4.0.0.rc.2)
       active_attr (~> 0.8)
       activemodel (~> 4)
       activesupport (~> 4)
-      neo4j-core (~> 3.0.8)
+      neo4j-core (~> 3.1.0)
       orm_adapter (~> 0.5.0)
       railties (~> 4)
 
 GIT
   remote: git://github.com/plataformatec/devise.git
-  revision: e54326c19c68f10df2548fcaaab411e93178b279
+  revision: 2c8e242000921910077951ecce538a21e802c59d
   specs:
     devise (3.4.1)
       bcrypt (~> 3.0)
@@ -44,15 +36,15 @@ GIT
 
 GIT
   remote: git://github.com/progrium/ruby-jwt.git
-  revision: 8d74770c6cd92ea234b428b5d0c1f18306a4f41c
+  revision: d46fa821fa5509dacdfdc433d457b21b2268a22f
   specs:
     jwt (1.1)
 
 GIT
   remote: git://github.com/sweatshirtio/rspec_api_helpers.git
-  revision: e7f877b68cc9eefd331469e9407a6a13bbcc3475
+  revision: beb21f45249e9c5e37959cc56fea7442d751f536
   specs:
-    rspec_api_helpers (0.0.1)
+    rspec_api_helpers (0.1.0)
       activesupport (~> 4.0)
       factory_girl (~> 4.0)
 
@@ -90,25 +82,21 @@ GEM
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.9)
+    bcrypt (3.1.9-java)
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
+    bcrypt-ruby (3.1.5-java)
+      bcrypt (>= 3.1.3)
     builder (3.2.2)
-    byebug (3.5.1)
-      columnize (~> 0.8)
-      debugger-linecache (~> 1.2)
-      slop (~> 3.6)
     celluloid (0.16.0)
       timers (~> 4.0.0)
-    codeclimate-test-reporter (0.4.1)
+    codeclimate-test-reporter (0.4.3)
       simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.0)
-    columnize (0.8.9)
-    daemons (1.1.9)
-    debugger-linecache (1.2.0)
     diff-lcs (1.2.5)
     docile (1.1.5)
+    dotenv (1.0.2)
     erubis (2.7.0)
-    eventmachine (1.0.3)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.5.0)
@@ -121,24 +109,33 @@ GEM
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
     ffi (1.9.6)
+    ffi (1.9.6-java)
+    foreman (0.76.0)
+      dotenv (~> 1.0.2)
+      thor (~> 0.19.1)
     formatador (0.2.5)
-    guard (2.8.2)
+    guard (2.10.4)
       formatador (>= 0.2.4)
       listen (~> 2.7)
       lumberjack (~> 1.0)
+      nenv (~> 0.1)
       pry (>= 0.9.12)
       thor (>= 0.18.1)
-    guard-bundler (2.0.0)
+    guard-bundler (2.1.0)
       bundler (~> 1.0)
       guard (~> 2.2)
+      guard-compat (~> 1.1)
+    guard-compat (1.1.0)
     guard-rails (0.7.0)
       guard (~> 2.0)
-    guard-rspec (4.3.1)
+    guard-rspec (4.5.0)
       guard (~> 2.1)
-      rspec (>= 2.14, < 4.0)
-    hashie (3.3.1)
+      guard-compat (~> 1.1)
+      rspec (>= 2.99.0, < 4.0)
+    hashie (3.3.2)
     hike (1.2.3)
     hitimes (1.2.2)
+    hitimes (1.2.2-java)
     httparty (0.13.3)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -147,7 +144,8 @@ GEM
     jc-validates_timeliness (3.1.1)
       timeliness (~> 0.3.7)
     json (1.8.1)
-    listen (2.8.0)
+    json (1.8.1-java)
+    listen (2.8.3)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -156,19 +154,18 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.4.3)
-    minitest (5.4.3)
+    minitest (5.5.0)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
-    neo4j-community (2.1.5)
-    neo4j-core (3.0.8)
+    nenv (0.1.1)
+    neo4j-core (3.1.0)
       activesupport
       faraday (~> 0.9.0)
       faraday_middleware (~> 0.9.1)
       httparty
       httpclient
       json
-      neo4j-community (~> 2.1.1)
       net-http-persistent
       os
       zip
@@ -182,8 +179,17 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry (0.10.1-java)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+      spoon (~> 0.0)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
+    puma (2.10.2)
+      rack (>= 1.1, < 2.0)
+    puma (2.10.2-java)
+      rack (>= 1.1, < 2.0)
     rack (1.5.2)
     rack-cors (0.2.9)
     rack-test (0.6.2)
@@ -208,13 +214,13 @@ GEM
       activesupport (= 4.1.8)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (10.3.2)
+    rake (10.4.2)
     rb-fchange (0.0.6)
       ffi
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    rdoc (4.1.2)
+    rdoc (4.2.0)
       json (~> 1.4)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
@@ -252,21 +258,20 @@ GEM
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
     slop (3.6.0)
+    spoon (0.0.4)
+      ffi
     sprockets (2.12.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sprockets-rails (2.2.0)
+    sprockets-rails (2.2.2)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
-    thin (1.6.3)
-      daemons (~> 1.0, >= 1.0.9)
-      eventmachine (~> 1.0)
-      rack (~> 1.0)
     thor (0.19.1)
     thread_safe (0.3.4)
+    thread_safe (0.3.4-java)
     tilt (1.4.1)
     timeliness (0.3.7)
     timers (4.0.1)
@@ -278,6 +283,7 @@ GEM
     zip (2.0.2)
 
 PLATFORMS
+  java
   ruby
 
 DEPENDENCIES
@@ -286,6 +292,7 @@ DEPENDENCIES
   devise-neo4j!
   factory_girl_rails
   faker
+  foreman
   guard-bundler
   guard-rails
   guard-rspec
@@ -293,8 +300,8 @@ DEPENDENCIES
   jwt (= 1.1)!
   neo4j!
   omniauth
-  pry-byebug!
   pry-rails
+  puma
   rack-cors
   rails
   rails_12factor
@@ -306,4 +313,3 @@ DEPENDENCIES
   rspec_api_helpers!
   sdoc (~> 0.4.0)
   sendgrid
-  thin

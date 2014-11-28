@@ -10,6 +10,10 @@ Bundler.require(*Rails.groups)
 
 module TuxedioApi
   class Application < Rails::Application
+    if ENV['TUX_DB_PORT_7474_TCP']
+      ENV['NEO4J_URL'] = ENV['TUX_DB_PORT_7474_TCP'].gsub /tcp/, 'http'
+    end
+
     config.neo4j.session_type = :server_db
     config.neo4j.session_path = ENV['NEO4J_URL'] || 'http://localhost:7474'
 

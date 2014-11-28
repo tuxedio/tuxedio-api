@@ -1,0 +1,8 @@
+Guardfile
+README.md
+circle.yml
+config/environments/development.rb
+config/environments/test.rb
+config/secrets.yml.ci
+log/*
+spec/*
