@@ -1,7 +1,10 @@
-![Stories in Ready](https://badge.waffle.io/tuxedio/tuxedio-api.png?label=ready&title=Ready) [![Circle CI](https://circleci.com/gh/tuxedio/tuxedio-api.svg?style=svg)](https://circleci.com/gh/tuxedio/tuxedio-api)
-
 Tuxedio API
 ===========
+
+[![Circle CI](https://circleci.com/gh/tuxedio/tuxedio-api.svg?style=shield)](https://circleci.com/gh/tuxedio/tuxedio-api)
+[![Code Climate](https://codeclimate.com/github/tuxedio/tuxedio-api/badges/gpa.svg)](https://codeclimate.com/github/tuxedio/tuxedio-api)
+[![Test Coverage](https://codeclimate.com/github/tuxedio/tuxedio-api/badges/coverage.svg)](https://codeclimate.com/github/tuxedio/tuxedio-api)
+![Stories in Ready](https://badge.waffle.io/tuxedio/tuxedio-api.png?label=ready&title=Ready)
 
 REST API for the Tuxedio experience marketplace.
 

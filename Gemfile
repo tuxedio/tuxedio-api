@@ -15,6 +15,7 @@ gem 'omniauth'
 gem 'jwt', '1.1', github: 'progrium/ruby-jwt'
 
 group :test do
+  gem 'codeclimate-test-reporter', require: nil
   gem 'rspec_api_helpers', github: 'sweatshirtio/rspec_api_helpers'
 end
 
