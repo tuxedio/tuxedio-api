@@ -1,15 +1,16 @@
 require 'jwt'
 
 class AuthToken
-  attr_reader :token, :payload
+  attr_reader :token, :payload, :expiry
 
-  def initialize(payload)
+  def initialize(payload, expiry: 2.weeks.from_now)
     @payload = payload
     @token = tokenize_payload
+    @expiry = expiry.to_i
   end
 
   def tokenize_payload
-    payload['exp'] = 24.hours.from_now.to_i
+    payload['exp'] = expiry
     JWT.encode payload, Rails.application.secrets.secret_key_base
   end
 
