@@ -22,6 +22,7 @@ db/*.sqlite3
 /db/*.sqlite3-journal
 /log/*
 /tmp/*
+db/neo4j/*
 
 # various artifacts
 **.war
