@@ -10,9 +10,6 @@
 # http://github.com/RailsApps/rails-composer/issues
 #----------------------------------------------------------------------------
 
-# security
-secrets.yml
-
 # bundler state
 /vendor/bundle/
 /vendor/ruby/
