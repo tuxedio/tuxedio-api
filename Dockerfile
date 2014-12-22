@@ -1,4 +1,4 @@
-FROM ruby:2.1.4
+FROM ruby:2.1.5
 MAINTAINER tuxedio <tuxedoapp@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
