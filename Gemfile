@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.1.4'
+if %w(production test).include? ENV['RAILS_ENV']
+  ruby '2.1.5'
+end
 
 gem 'neo4j', github: 'neo4jrb/neo4j'
 gem 'rails'
