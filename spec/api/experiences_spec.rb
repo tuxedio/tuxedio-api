@@ -1,7 +1,7 @@
 describe Api::V1::ExperiencesController do
   describe '#index' do
-    before { create_list :experience, 10 }
-    before { get v1_experiences_path, headers_for(:json) }
+    before(:all) { create_list :experience, 30 }
+    before(:all) { get v1_experiences_path, headers_for(:json) }
     after { delete_db }
 
     it 'responds with 200 request (authenticated)' do
@@ -15,13 +15,19 @@ describe Api::V1::ExperiencesController do
     end
 
     it 'responds with the serialized experiences' do
-      expect(response_body[:experiences].length).to eq 10
+      expect(response_body[:experiences].length).to be > 0
+    end
+
+    it 'paginates the response' do
+      expect(response_body[:experiences].length).to eq 25
+      expect(response.headers['Link']).to_not be_blank
+      expect(response.headers['Link']).to include 'page=2'
     end
   end
 
   describe '#get' do
-    let!(:exp) { create :experience }
-    before { get v1_experience_path(exp), headers_for(:json) }
+    before(:all) { @exp = create :experience }
+    before(:all) { get v1_experience_path(@exp), headers_for(:json) }
 
     it 'responds with 200 request (authenticated)' do
       allow(AuthToken).to receive(:valid?).and_return true
@@ -41,7 +47,7 @@ describe Api::V1::ExperiencesController do
       attrs_for_experience = %w(id location description name)
 
       attrs_for_experience.each do |attr|
-        expect(response_body[:experience][attr]).to eq exp.send attr
+        expect(response_body[:experience][attr]).to eq @exp.send attr
       end
     end
   end
