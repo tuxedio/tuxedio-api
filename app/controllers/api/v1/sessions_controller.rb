@@ -2,8 +2,8 @@ module Api
   module V1
     class SessionsController < Devise::SessionsController
       skip_before_action :verify_authenticity_token
-      before_filter :verify_jwt_token, except: [:create]
-      skip_before_filter :verify_signed_out_user, only: :destroy
+      before_action :verify_jwt_token, except: [:create]
+      skip_before_action :verify_signed_out_user, only: :destroy
 
       def create
         self.resource = warden.authenticate!(auth_options)
