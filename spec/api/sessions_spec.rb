@@ -39,7 +39,7 @@ describe Api::V1::SessionsController do
     end
 
     it 'responds with 401 status with invalid JWT' do
-      headers = headers_for(:json).merge({ Authentication: 'f4ke_t0k3n' })
+      headers = headers_for(:json).merge(Authentication: 'f4ke_t0k3n')
       delete v1_logout_path, {}, headers
 
       expect(response).to have_http_status 401

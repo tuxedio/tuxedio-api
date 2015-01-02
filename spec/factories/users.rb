@@ -14,21 +14,25 @@ FactoryGirl.define do
   end
 
   factory :login_creds, class: Hash do
-    user {{
-      email: Faker::Internet.email,
-      password: Faker::Internet.password
-    }}
+    user do
+      {
+        email: Faker::Internet.email,
+        password: Faker::Internet.password
+      }
+    end
 
     initialize_with { attributes }
   end
 
   factory :user_registration, class: Hash do
-    user {{
-      handle: 'Jon Snow',
-      email: 'game@thrones.com',
-      password: 'You know nothing, Jon Snow',
-      password_confirmation: 'You know nothing, Jon Snow'
-    }}
+    user do
+      {
+        handle: 'Jon Snow',
+        email: 'game@thrones.com',
+        password: 'You know nothing, Jon Snow',
+        password_confirmation: 'You know nothing, Jon Snow'
+      }
+    end
 
     initialize_with { attributes }
   end

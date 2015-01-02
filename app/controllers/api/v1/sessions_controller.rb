@@ -12,7 +12,7 @@ module Api
 
         yield resource if block_given?
 
-        token = AuthToken.new({ user_id: resource.id }).token
+        token = AuthToken.new(user_id: resource.id).token
 
         respond_with resource, location: after_sign_in_path_for(resource) do |format|
           format.json { render json: { user: resource.email, token: token } }

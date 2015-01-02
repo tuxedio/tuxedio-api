@@ -1,5 +1,4 @@
 describe Person, type: :model do
-
   subject { build :person }
 
   describe '#profile' do

@@ -1,7 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
-require "action_controller/railtie"
-require "action_mailer/railtie"
+require 'action_controller/railtie'
+require 'action_mailer/railtie'
 require 'neo4j/railtie'
 
 # Require the gems listed in Gemfile, including any gems
@@ -10,8 +10,9 @@ Bundler.require(*Rails.groups)
 
 module TuxedioApi
   class Application < Rails::Application
+    # Autodetect linked Docker container
     if ENV['TUX_DB_PORT_7474_TCP']
-      ENV['NEO4J_URL'] = ENV['TUX_DB_PORT_7474_TCP'].gsub /tcp/, 'http'
+      ENV['NEO4J_URL'] = ENV['TUX_DB_PORT_7474_TCP'].gsub(/tcp/, 'http')
     end
 
     config.neo4j.session_type = :server_db
@@ -19,16 +20,18 @@ module TuxedioApi
 
     config.generators do |g|
       g.orm :neo4j
-      g.test_framework :rspec,
+      g.test_framework(
+        :rspec,
         fixtures: true,
         view_specs: false,
         helper_specs: false,
         routing_specs: false,
         controller_specs: false,
         request_specs: false
+      )
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
     end
 
-     config.autoload_paths << Rails.root.join('lib')
+    config.autoload_paths << Rails.root.join('lib')
   end
 end
