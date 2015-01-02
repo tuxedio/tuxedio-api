@@ -2,10 +2,10 @@ inherit_from: .rubocop_todo.yml
 
 AllCops:
   Exclude:
-    - 'bin/**/*'
-    - 'Guardfile'
-    - 'Gemfile'
-    - 'vendor/**'
+    - bin/**/*
+    - Guardfile
+    - Gemfile
+    - vendor/**
 
 Style/Documentation:
   Description: 'Document classes and non-namespace modules.'
