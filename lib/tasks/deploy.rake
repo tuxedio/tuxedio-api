@@ -25,28 +25,33 @@ namespace :deploy do
     puts 'Deployed app for QA.'
   end
 
-
   desc 'Shell into container'
   task :shell do
     puts 'Running bash inside of container...'
-    system 'docker', 'run', '-i', '-t', '--link', 'tux-db:tux-db', '-p',
+    system(
+      'docker', 'run', '-i', '-t', '--link', 'tux-db:tux-db', '-p',
       '5000:5000', 'tuxedio', 'bash'
+    )
   end
 
   desc 'Boot the app'
   task :app do
     Rake::Task['deploy:clean:app'].execute
     puts 'Booting app...'
-    system 'docker', 'run', '-i', '-t', '-d', '--link', 'tux-db:tux-db', '-p',
+    system(
+      'docker', 'run', '-i', '-t', '-d', '--link', 'tux-db:tux-db', '-p',
       '5000:5000', '--name', 'tux', 'tuxedio'
+    )
   end
 
   desc 'Boot Neo4J'
   task :db do
     Rake::Task['deploy:clean:db'].execute
     puts 'Booting DB...'
-    system 'docker', 'run', '-i', '-t', '-d', '--privileged', '-p',
+    system(
+      'docker', 'run', '-i', '-t', '-d', '--privileged', '-p',
       '7474:7474', '--name', 'tux-db', 'tpires/neo4j'
+    )
     sleep 2
   end
 end

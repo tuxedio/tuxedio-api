@@ -19,8 +19,10 @@ FactoryGirl.define do
       end
     end
 
-    factory :person_with_hosted_experiences,
+    factory(
+      :person_with_hosted_experiences,
       traits: [:with_hosted_experiences]
+    )
 
     factory :person_with_account, traits: [:with_account]
   end

@@ -39,7 +39,7 @@ describe User, type: :model do
         build(:user, handle: 'a' * 2)
       ]
 
-      users.each{ |user| expect(user).to_not be_valid }
+      users.each { |user| expect(user).to_not be_valid }
     end
   end
 end

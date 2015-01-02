@@ -1,8 +1,14 @@
 class User
   include Neo4j::ActiveNode
 
-  devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable
+  devise(
+    :database_authenticatable,
+    :registerable,
+    :recoverable,
+    :rememberable,
+    :trackable,
+    :validatable
+  )
 
   property :handle, type: String
   index :handle
@@ -11,7 +17,7 @@ class User
   property :updated_at, type: DateTime
 
   ## Database authenticatable
-  property :email, type: String, null: false, default: ""
+  property :email, type: String, null: false, default: ''
   index :email
 
   ## Rememberable
@@ -51,5 +57,5 @@ class User
 
   has_one :out, :role, type: :role, model_class: false
 
-  before_destroy { self.role.destroy }
+  before_destroy { role.destroy }
 end
