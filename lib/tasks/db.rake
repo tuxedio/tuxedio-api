@@ -4,9 +4,11 @@ namespace :db do
   end
 
   task :seed do
+    require File.join(Rails.root, 'config', 'environment')
+
     FactoryGirl.create :user,
       email: 'example@example.com',
-      password: 'foobar124'
+      password: 'foobar123'
 
     FactoryGirl.create_list :experience, 100
   end

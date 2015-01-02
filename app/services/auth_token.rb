@@ -3,7 +3,7 @@ require 'jwt'
 class AuthToken
   attr_reader :token, :payload, :expiry
 
-  def initialize(payload, expiry: 2.weeks.from_now)
+  def initialize(payload, expiry: 168.hours.from_now)
     @payload = payload
     @token = tokenize_payload
     @expiry = expiry.to_i
