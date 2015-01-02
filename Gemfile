@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 
-if %w(production test).include? ENV['RAILS_ENV']
-  ruby '2.1.5'
-end
+ruby '2.2.0'
 
 gem 'active_model_serializers'
 gem 'neo4j', github: 'neo4jrb/neo4j'
