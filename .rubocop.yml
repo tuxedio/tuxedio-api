@@ -5,6 +5,7 @@ AllCops:
     - 'bin/**/*'
     - 'Guardfile'
     - 'Gemfile'
+    - 'vendor/**'
 
 Style/Documentation:
   Description: 'Document classes and non-namespace modules.'
