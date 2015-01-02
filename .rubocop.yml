@@ -4,6 +4,7 @@ AllCops:
   Exclude:
     - 'bin/**/*'
     - 'Guardfile'
+    - 'Gemfile'
 
 Style/Documentation:
   Description: 'Document classes and non-namespace modules.'
