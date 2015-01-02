@@ -23,6 +23,7 @@ group :test do
 end
 
 group :development do
+  gem 'rubocop', require: false
   gem 'guard-bundler'
   gem 'guard-rails'
   gem 'guard-rspec'
