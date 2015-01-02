@@ -18,6 +18,7 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'omniauth'
 gem 'jwt', '1.1', github: 'progrium/ruby-jwt'
 gem 'foreman'
+gem 'api-pagination'
 
 group :test do
   gem 'codeclimate-test-reporter', require: nil

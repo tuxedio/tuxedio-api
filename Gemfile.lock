@@ -91,6 +91,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    api-pagination (3.1.0)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.9)
     bcrypt-ruby (3.1.5)
@@ -282,6 +283,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  api-pagination
   codeclimate-test-reporter
   devise!
   devise-neo4j!

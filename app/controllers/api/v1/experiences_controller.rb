@@ -6,9 +6,8 @@ module Api
       respond_to :json
 
       def index
-        @experiences = Experience.all.paginate page: experience_params[:page]
-        render json:  @experiences, each_serializer: ExperienceSerializer,
-          meta: PaginationMetadata.new(@experiences).serialize
+        @experiences = Experience.all
+        paginate json: @experiences
       end
 
       def show
