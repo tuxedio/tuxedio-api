@@ -32,6 +32,8 @@ module TuxedioApi
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
     end
 
-    config.autoload_paths << Rails.root.join('lib')
+    %w(app lib).each do |folder|
+      config.autoload_paths << Rails.root.join(folder)
+    end
   end
 end
