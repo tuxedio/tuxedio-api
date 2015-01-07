@@ -3,15 +3,6 @@ module PersistenceLayers
     class User
       include ::Neo4j::ActiveNode
 
-      devise(
-        :database_authenticatable,
-        :registerable,
-        :recoverable,
-        :rememberable,
-        :trackable,
-        :validatable
-      )
-
       property :handle, type: String
       index :handle
       property :encrypted_password
@@ -51,15 +42,6 @@ module PersistenceLayers
       property :locked_at, type: DateTime
       property :unlock_token, type: String
       index :unlock_token
-
-      validates_uniqueness_of :email, case_sensitive: false
-      validates_uniqueness_of :handle
-
-      validates :handle, length: { in: 3..20 }
-
-      has_one :out, :role, type: :role, model_class: false
-
-      before_destroy { role.destroy }
     end
   end
 end
