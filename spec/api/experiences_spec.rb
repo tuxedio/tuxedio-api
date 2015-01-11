@@ -5,7 +5,7 @@ describe Api::V1::ExperiencesController do
     after { delete_db }
 
     it 'responds with 200 request (authenticated)' do
-      allow(AuthToken).to receive(:valid?).and_return true
+      authenticate_user
 
       expect(response).to have_http_status 200
     end
@@ -30,7 +30,7 @@ describe Api::V1::ExperiencesController do
     before(:all) { get v1_experience_path(@exp), headers_for(:json) }
 
     it 'responds with 200 request (authenticated)' do
-      allow(AuthToken).to receive(:valid?).and_return true
+      authenticate_user
 
       expect(response).to have_http_status 200
     end
