@@ -9,5 +9,7 @@ RSpec.configure do |config|
 
   def authenticate_user
     allow(AuthToken).to receive(:valid?).and_return true
+    allow_any_instance_of(ApplicationController).to receive(:current_person)
+      .and_return(create(:person))
   end
 end

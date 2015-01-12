@@ -51,4 +51,25 @@ describe Api::V1::ExperiencesController do
       end
     end
   end
+
+  describe '#post' do
+    let(:exp) { json :experience }
+
+    context 'when user is authenticated' do
+      before { authenticate_user }
+      before { post v1_experiences_path, exp, headers_for(:json) }
+
+      it 'responds with 201 request (authenticated)' do
+        expect(response).to have_http_status 201
+      end
+    end
+
+    context 'when user is unauthenticated' do
+      before { post v1_experiences_path, exp }
+
+      it 'responds with 401 request (unauthenticated)' do
+        expect(response).to have_http_status 401
+      end
+    end
+  end
 end
