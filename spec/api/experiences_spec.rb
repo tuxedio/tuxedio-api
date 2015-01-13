@@ -5,7 +5,7 @@ describe Api::V1::ExperiencesController do
     after { delete_db }
 
     it 'responds with 200 request (authenticated)' do
-      allow(AuthToken).to receive(:valid?).and_return true
+      authenticate_user
 
       expect(response).to have_http_status 200
     end
@@ -28,9 +28,10 @@ describe Api::V1::ExperiencesController do
   describe '#get' do
     before(:all) { @exp = create :experience }
     before(:all) { get v1_experience_path(@exp), headers_for(:json) }
+    after { delete_db }
 
     it 'responds with 200 request (authenticated)' do
-      allow(AuthToken).to receive(:valid?).and_return true
+      authenticate_user
 
       expect(response).to have_http_status 200
     end
@@ -48,6 +49,40 @@ describe Api::V1::ExperiencesController do
 
       attrs_for_experience.each do |attr|
         expect(response_body[:experience][attr]).to eq @exp.send attr
+      end
+    end
+  end
+
+  describe '#post' do
+    let(:exp) { json :experience }
+    before { delete_db }
+    after { delete_db }
+
+    context 'when user is authenticated' do
+      before { authenticate_user }
+      before { post v1_experiences_path, exp, headers_for(:json) }
+
+      it 'responds with 201 request (authenticated)' do
+        expect(response).to have_http_status 201
+      end
+
+      it 'creates the experience' do
+        experience_hash = JSON.parse(exp)['experience']
+
+        expect(Experience.count).to eq 1
+        expect(Experience.find_by(experience_hash)).to be_an Experience
+      end
+    end
+
+    context 'when user is unauthenticated' do
+      before { post v1_experiences_path, exp }
+
+      it 'responds with 401 request (unauthenticated)' do
+        expect(response).to have_http_status 401
+      end
+
+      it 'does not create the experience' do
+        expect(Experience.count).to eq 0
       end
     end
   end

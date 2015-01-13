@@ -6,4 +6,10 @@ RSpec.configure do |config|
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
   end
+
+  def authenticate_user
+    allow(AuthToken).to receive(:valid?).and_return true
+    allow_any_instance_of(ApplicationController).to receive(:current_person)
+      .and_return(create(:person))
+  end
 end

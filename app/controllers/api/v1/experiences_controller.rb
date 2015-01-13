@@ -19,6 +19,16 @@ module Api
         head :no_content
       end
 
+      def create
+        @experience = current_person.hosted_experiences.new experience_params
+
+        if @experience.save
+          render json: @experience, status: :created
+        else
+          render json: @experience.errors, status: :unprocessable_entity
+        end
+      end
+
       private
 
       def set_experience
@@ -26,7 +36,12 @@ module Api
       end
 
       def experience_params
-        params.permit :id, :page, :name, :experience
+        params.require(:experience).permit(
+          :name,
+          :location,
+          :description,
+          :experience_times
+        )
       end
     end
   end
