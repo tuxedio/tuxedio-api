@@ -51,7 +51,7 @@ GIT
 
 GIT
   remote: git://github.com/sweatshirtio/rspec_api_helpers.git
-  revision: f95e5c2d324252ae93db5d5a142943d7cfcd9f2b
+  revision: 9006b4ced1270fc69a0207911dc616c5124a28e4
   specs:
     rspec_api_helpers (0.1.2)
       activesupport
