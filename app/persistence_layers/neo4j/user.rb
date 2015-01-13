@@ -3,6 +3,8 @@ module PersistenceLayers
     class User
       include ::Neo4j::ActiveNode
 
+      has_one :out, :role, type: :role, model_class: false, dependent: :destroy
+
       property :handle, type: String
       index :handle
       property :encrypted_password
