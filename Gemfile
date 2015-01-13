@@ -3,20 +3,18 @@ source 'https://rubygems.org'
 ruby '2.2.0'
 
 gem 'active_model_serializers'
-gem 'neo4j', github: 'neo4jrb/neo4j'
-gem 'neo4j-will_paginate_redux', github: 'neo4jrb/neo4j-will_paginate_redux'
-gem 'rails', '~> 4.1.8'
-gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'sendgrid'
-gem 'puma'
-gem 'jc-validates_timeliness'
+gem 'api-pagination'
 gem 'devise', github: 'plataformatec/devise'
 gem 'devise-neo4j', github: 'benjackson/devise-neo4j'
-gem 'rack-cors', require: 'rack/cors'
-gem 'omniauth'
-gem 'jwt', '1.1', github: 'progrium/ruby-jwt'
 gem 'foreman'
-gem 'api-pagination'
+gem 'jc-validates_timeliness'
+gem 'jwt', '1.1', github: 'progrium/ruby-jwt'
+gem 'neo4j', github: 'neo4jrb/neo4j'
+gem 'neo4j-will_paginate_redux', github: 'neo4jrb/neo4j-will_paginate_redux'
+gem 'omniauth'
+gem 'puma'
+gem 'rack-cors', require: 'rack/cors'
+gem 'rails', '~> 4.1.8'
 
 group :test do
   gem 'codeclimate-test-reporter', require: nil
@@ -28,9 +26,6 @@ group :development do
   gem 'guard-bundler'
   gem 'guard-rails'
   gem 'guard-rspec'
-  gem 'rb-fchange', require: false
-  gem 'rb-fsevent', require: false
-  gem 'rb-inotify', require: false
 end
 
 group :development, :test do
