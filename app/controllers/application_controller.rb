@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   def verify_jwt_token
-    unless AuthToken.valid? user_token
+    unless TokenAuthenticator.call user_token
       render json: { message: 'Authentication failed' }, status: :unauthorized
     end
   end
@@ -31,6 +31,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_person
-    AuthToken.user_from_token(user_token).role
+    TokenAuthenticator.user_from_token(user_token).role
   end
 end
