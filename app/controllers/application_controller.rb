@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
-  before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
   respond_to :json
-  skip_before_filter :verify_authenticity_token, if: :json_request?
+  skip_before_action :verify_authenticity_token, if: :json_request?
 
   protected
 
@@ -15,10 +15,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def verify_jwt_token
-    token = extract_token_from_headers request.headers
+  def user_token
+    extract_token_from_headers request.headers
+  end
 
-    unless AuthToken.valid? token
+  def verify_jwt_token
+    unless TokenAuthenticator.call user_token
       render json: { message: 'Authentication failed' }, status: :unauthorized
     end
   end
@@ -26,5 +28,9 @@ class ApplicationController < ActionController::Base
   def extract_token_from_headers(headers)
     auth_headers = headers['Authentication'] || ''
     auth_headers.split(' ').last
+  end
+
+  def current_person
+    TokenAuthenticator.user_from_token(user_token).role
   end
 end

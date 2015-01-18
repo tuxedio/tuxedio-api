@@ -8,9 +8,11 @@ describe ExperienceTime, type: :model do
 
   describe '#ends_at' do
     it 'cannot end before start time' do
-      time = build :experience_time,
+      time = build(
+        :experience_time,
         starts_at: DateTime.now + 2.weeks,
         ends_at: DateTime.now + 1.week
+      )
 
       expect(time).to_not be_valid
     end

@@ -7,3 +7,4 @@ test:
     - cp config/secrets.yml.ci config/secrets.yml
   override:
     - CODECLIMATE_REPO_TOKEN=477aa52a905bdcbb8f62eb18bc399ef18eefc9c40a26dc32b32948da3cf3abdd bundle exec rake
+    - bundle exec rubocop

@@ -32,14 +32,14 @@ describe Api::V1::SessionsController do
 
   describe '#logout' do
     it 'responds with 204 HTTP status with valid JWT' do
-      allow(AuthToken).to receive(:valid?).and_return true
+      authenticate_user
       delete v1_logout_path, {}, headers_for(:json)
 
       expect(response).to have_http_status 204
     end
 
     it 'responds with 401 status with invalid JWT' do
-      headers = headers_for(:json).merge({ Authentication: 'f4ke_t0k3n' })
+      headers = headers_for(:json).merge(Authentication: 'f4ke_t0k3n')
       delete v1_logout_path, {}, headers
 
       expect(response).to have_http_status 401
