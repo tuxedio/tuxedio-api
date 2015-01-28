@@ -27,7 +27,7 @@ describe Api::V1::ExperiencesController do
       end
 
       it 'paginates the response' do
-        expect(response_body[:experiences].length).to eq 25
+        expect(response_body[:experiences].length).to eq 30
         expect(response.headers['Link']).to include 'page=2'
       end
     end

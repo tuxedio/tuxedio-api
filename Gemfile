@@ -14,7 +14,7 @@ gem 'neo4j-will_paginate_redux', github: 'neo4jrb/neo4j-will_paginate_redux'
 gem 'omniauth'
 gem 'puma'
 gem 'rack-cors', require: 'rack/cors'
-gem 'rails', '~> 4.1.8'
+gem 'rails', '~> 4.2'
 
 group :test do
   gem 'codeclimate-test-reporter', require: nil
@@ -32,6 +32,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'pry-rails'
+  gem 'pry-theme'
   gem 'rspec-collection_matchers'
   gem 'rspec-rails'
 end
