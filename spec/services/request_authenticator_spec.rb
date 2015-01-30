@@ -3,7 +3,7 @@ describe RequestAuthenticator do
 
   let(:payload) { login_hash :user }
   let(:token) { TokenCreator.call payload }
-  let(:headers) { { 'Authentication' => "Bearer #{token}" } }
+  let(:headers) { OpenStruct.new headers: { 'Authentication' => "Bearer #{token}" } }
 
   subject { RequestAuthenticator.call headers }
 

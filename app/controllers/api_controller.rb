@@ -6,7 +6,7 @@ class ApiController < ApplicationController
   protected
 
   def verify_jwt_token
-    unless RequestAuthenticator.call request.headers
+    unless RequestAuthenticator.call request
       render json: { errors: 'Authentication failed' }, status: :unauthorized
     end
   end
