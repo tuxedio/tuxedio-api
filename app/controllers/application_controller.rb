@@ -15,21 +15,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def user_token
-    extract_token_from_headers request.headers
-  end
-
-  def verify_jwt_token
-    unless TokenAuthenticator.call user_token
-      render json: { message: 'Authentication failed' }, status: :unauthorized
-    end
-  end
-
-  def extract_token_from_headers(headers)
-    auth_headers = headers['Authentication'] || ''
-    auth_headers.split(' ').last
-  end
-
   def current_person
     TokenAuthenticator.user_from_token(user_token).role
   end
