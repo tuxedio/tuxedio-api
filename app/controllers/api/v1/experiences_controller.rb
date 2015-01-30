@@ -1,6 +1,6 @@
 module Api
   module V1
-    class ExperiencesController < ApplicationController
+    class ExperiencesController < ApiController
       before_filter :verify_jwt_token, except: [:show, :index]
       before_action :set_experience, only: [:show, :edit, :update, :destroy]
       respond_to :json
@@ -16,6 +16,9 @@ module Api
 
       def destroy
         @experience.destroy
+
+        # We respond with no_content regardless as to not give any extra
+        # information about the existence of the resource.
         head :no_content
       end
 
@@ -25,7 +28,7 @@ module Api
         if @experience.save
           render json: @experience, status: :created
         else
-          render json: @experience.errors, status: :unprocessable_entity
+          render json: errors_for(@experience), status: :unprocessable_entity
         end
       end
 

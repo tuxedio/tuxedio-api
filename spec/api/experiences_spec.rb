@@ -71,21 +71,26 @@ describe Api::V1::ExperiencesController do
   describe 'POST #create' do
     let(:exp) { json :experience }
 
-    before do
-      allow_any_instance_of(Experience).to receive(:save).and_return true
-    end
-
     context 'when user is authenticated' do
       before { authenticate_user }
 
       it 'responds with 201 request (authenticated)' do
+        allow_any_instance_of(Experience).to receive(:save)
+          .and_return true
         post v1_experiences_path, exp, headers_for(:json)
+
         expect(response).to have_http_status 201
       end
 
       it 'creates the experience' do
         expect_any_instance_of(Experience).to receive(:save) { true }
         post v1_experiences_path, exp, headers_for(:json)
+      end
+
+      it 'renders errors in a consumable format' do
+        invalid_exp = { experience: { name: 'Test' } }.to_json
+        post v1_experiences_path, invalid_exp, headers_for(:json)
+        expect(response_body).to include :errors
       end
     end
 
