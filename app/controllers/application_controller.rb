@@ -16,6 +16,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_person
-    TokenAuthenticator.user_from_token(user_token).role
+    RequestAuthenticator.user_from_token(user_token).role
   end
 end

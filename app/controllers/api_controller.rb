@@ -5,17 +5,8 @@ class ApiController < ApplicationController
 
   protected
 
-  def user_token
-    extract_token_from_headers request.headers
-  end
-
-  def extract_token_from_headers(headers)
-    auth_headers = headers['Authentication'] || ''
-    auth_headers.split(' ').last
-  end
-
   def verify_jwt_token
-    unless TokenAuthenticator.call user_token
+    unless RequestAuthenticator.call request.headers
       render json: { errors: 'Authentication failed' }, status: :unauthorized
     end
   end
