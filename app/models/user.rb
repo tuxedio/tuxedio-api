@@ -9,6 +9,7 @@ class User < PersistenceLayers::Neo4j::User
     :recoverable,
     :rememberable,
     :trackable,
-    :validatable
+    :validatable,
+    :confirmable
   )
 end

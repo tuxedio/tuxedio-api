@@ -11,4 +11,5 @@ Devise.setup do |config|
   config.reset_password_within = 6.hours
   config.sign_out_via = :delete
   config.parent_controller = 'ApiController'
+  config.allow_unconfirmed_access_for = 2.days
 end
