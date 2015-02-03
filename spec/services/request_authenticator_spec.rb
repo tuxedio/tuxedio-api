@@ -1,10 +1,11 @@
-describe TokenAuthenticator do
+describe RequestAuthenticator do
   after { delete_db }
 
   let(:payload) { login_hash :user }
   let(:token) { TokenCreator.call payload }
+  let(:headers) { OpenStruct.new headers: { 'Authentication' => "Bearer #{token}" } }
 
-  subject { TokenAuthenticator.call token }
+  subject { RequestAuthenticator.call headers }
 
   describe '.call' do
     it 'decodes the payload' do
