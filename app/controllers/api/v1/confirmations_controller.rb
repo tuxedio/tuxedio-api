@@ -2,10 +2,16 @@ module Api
   module V1
     class ConfirmationsController < Devise::ConfirmationsController
       def show
-        self.resource = User.confirm_by_token params[:confirmation_token]
+        self.resource = User.confirm_by_token(
+          confirmations_params[:confirmation_token]
+        )
+
         yield resource if block_given?
-        domain = Rails.application.secrets.domain_name
-        navigate_to_after_confirmation_path resource, domain
+
+        navigate_to_after_confirmation_path(
+          resource,
+          confirmations_params[:callback]
+        )
       end
 
       private
@@ -20,6 +26,10 @@ module Api
             redirect_to domain
           end
         end
+      end
+
+      def confirmations_params
+        params.permit :callback, :confirmation_token
       end
     end
   end
