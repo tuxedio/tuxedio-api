@@ -1,19 +1,15 @@
 describe Api::V1::ConfirmationsController do
-  describe '#create' do
-    it 'redirects to correct page with valid token' do
-      allow(User).to receive(:confirm_by_token)
-        .and_return build :user
-      get user_confirmation_path
-
-      expect(response).to redirect_to 'http://example.com'
+  describe 'GET #show' do
+    before do
+      allow_any_instance_of(Api::V1::ConfirmationsController)
+        .to receive(:confirmations_params)
+        .and_return callback: 'http://test.com'
     end
 
-    it 'redirects to correct page with invalid token with errors' do
-      allow(User).to receive(:confirm_by_token)
-        .and_return OpenStruct.new(errors: %w(many errors indeed))
+    it 'redirects to callback URL' do
       get user_confirmation_path
 
-      expect(response).to redirect_to 'http://example.com'
+      expect(response).to redirect_to 'http://test.com'
     end
   end
 end
