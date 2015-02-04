@@ -12,4 +12,5 @@ Devise.setup do |config|
   config.sign_out_via = :delete
   config.parent_controller = 'ApiController'
   config.allow_unconfirmed_access_for = 2.days
+  config.mailer = 'UserMailer'
 end
