@@ -21,6 +21,4 @@ RUN bundle install \
 
 ADD . /usr/src/app/
 
-EXPOSE 3000
-
 CMD ["bundle", "exec", "foreman", "start"]
