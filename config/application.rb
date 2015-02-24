@@ -10,9 +10,9 @@ Bundler.require(*Rails.groups)
 
 module TuxedioApi
   class Application < Rails::Application
-    # Autodetect linked Docker container
-    if ENV['TUX_DB_PORT_7474_TCP']
-      ENV['NEO4J_URL'] = ENV['TUX_DB_PORT_7474_TCP'].gsub(/tcp/, 'http')
+    if ENV['NEO4J_PORT_7474_TCP']
+      ENV['NEO4J_URL'] = ENV['NEO4J_PORT_7474_TCP'].gsub(/tcp/, 'http')
+      sleep 5
     end
 
     config.neo4j.session_type = :server_db
