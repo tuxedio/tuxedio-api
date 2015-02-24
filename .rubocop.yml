@@ -8,5 +8,10 @@ AllCops:
     - vendor/**/*
 
 Style/Documentation:
-  Description: 'Document classes and non-namespace modules.'
+  Enabled: false
+
+Style/Debugger:
+  Enabled: false
+
+Style/Semicolon:
   Enabled: false
