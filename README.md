@@ -11,9 +11,11 @@ REST API for the Tuxedio experience marketplace.
 
 1. Install [Neo4j](http://neo4j.com/docs/stable/server-installation.html)
   * Note: make sure to start the Neo4j server
-2. Install the bundles
+2. Install mailcatcher gem and run the daemon
+  `$ gem install mailcatcher && mailcatcher`
+3. Install the bundles
   `$ bundle install`
-3. Run the tests
+4. Run the tests
   `$ rspec`
 
 ## Coding Style
