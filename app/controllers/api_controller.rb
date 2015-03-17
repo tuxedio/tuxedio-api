@@ -3,6 +3,8 @@ class ApiController < ApplicationController
   respond_to :json
   skip_before_action :verify_authenticity_token, if: :json_request?
 
+  protect_from_forgery with: :null_session
+
   protected
 
   def verify_jwt_token

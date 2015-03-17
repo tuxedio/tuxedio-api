@@ -28,6 +28,13 @@ describe Api::V1::SessionsController do
 
       expect(response_body[:token]).to_not be_blank
     end
+
+    it 'does not store a session token' do
+      post v1_login_path, valid_creds, headers_for(:json)
+      no_session_headers = ->(hdrs) { hdrs.keys.none? { |h| /^session$/i.match h } }
+
+      expect(no_session_headers[response.headers]).to be true
+    end
   end
 
   describe '#logout' do
